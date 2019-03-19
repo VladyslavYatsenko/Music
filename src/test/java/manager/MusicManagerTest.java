@@ -1,8 +1,9 @@
 package manager;
 
-import dto.Album;
-import dto.Artist;
-import dto.Track;
+import firstVariant.dto.Album;
+import firstVariant.dto.Artist;
+import firstVariant.dto.Track;
+import firstVariant.manager.MusicManager;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class MusicManagerTest {
     @Test
     public void shouldReturnRightAlbumsOnAlbumYear() {
         initAlbums();
-        String actual=musicManager.getAlbumsByYear("1980-06-25").get(0).getAlbumName();
+        String actual = musicManager.getAlbumsByYear("1980-06-25").get(0).getAlbumName();
         assertThat(actual).isEqualTo("Back In Black");
     }
 
@@ -96,8 +97,6 @@ public class MusicManagerTest {
     public void shouldReturnAllListOfAlbums() {
         initAlbums();
         List<Album> expected = musicManager.getAlbums();
-
         assertThat(expected).isNotEmpty();
-
     }
 }

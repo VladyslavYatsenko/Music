@@ -1,10 +1,11 @@
-package manager;
+package firstVariant.manager;
 
-import dto.Album;
-import dto.Artist;
-import dto.Track;
+import firstVariant.dto.Album;
+import firstVariant.dto.Artist;
+import firstVariant.dto.Track;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MusicManager {
 
@@ -21,8 +22,8 @@ public class MusicManager {
     public List<Album> getAlbumsByTrack(String trackName) {
         List<Album> result = new ArrayList<>();
         for (int i = 0; i < fullAlbumsList.size(); i++) {
-            for(int j=0;j<fullAlbumsList.get(i).getTracks().size();j++){
-                if(fullAlbumsList.get(i).getTracks().get(j).getTrackName().equals(trackName)){
+            for (int j = 0; j < fullAlbumsList.get(i).getTracks().size(); j++) {
+                if (fullAlbumsList.get(i).getTracks().get(j).getTrackName().equals(trackName)) {
                     result.add(fullAlbumsList.get(i));
                 }
             }
@@ -53,13 +54,12 @@ public class MusicManager {
     public List<Track> getTracksByAuthor(String authorName) {
         List<Track> result = new ArrayList<>();
         for (int i = 0; i < fullAlbumsList.size(); i++) {
-            for (int j = 0; j < fullAlbumsList.get(i).getArtist().size();j++) {
-                if(authorName.equals(fullAlbumsList.get(i).getArtist().get(j).getArtistName())){
+            for (int j = 0; j < fullAlbumsList.get(i).getArtists().size(); j++) {
+                if (authorName.equals(fullAlbumsList.get(i).getArtists().get(j).getArtistName())) {
                     result.addAll(fullAlbumsList.get(i).getTracks());
                 }
             }
         }
         return result;
     }
-
 }

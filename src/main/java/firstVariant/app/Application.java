@@ -1,10 +1,13 @@
-package app;
+package firstVariant.app;
 
 
-import dto.Artist;
-import dto.Track;
-import manager.MusicManager;
-import java.util.*;
+import firstVariant.dto.Artist;
+import firstVariant.dto.Track;
+import firstVariant.manager.MusicManager;
+import firstVariant.manager.MusicManagerStream;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -39,11 +42,13 @@ public class Application {
         newsOfTheWorld.add(new Track("Fight From the Inside", "Rock", 3.04));
         newsOfTheWorld.add(new Track("All Dead,All Dead", "Rock", 3.10));
 
-        musicManager.addAlbum(backInBlackTracks, "Back In Black", "1980-06-25", acdcArtists);
-        musicManager.addAlbum(newsOfTheWorld, "News Of The World", "1977-10-28", queenArtists);
-       // System.out.println(musicManager.getTracksByAuthor("Freddy Mercury"));
 
-        System.out.println(musicManager.getAlbumsByYear("1980-06-25"));
-        //System.out.println(musicManager.getAlbumsByTrack("We Will Rock You"));
+
+        MusicManagerStream managerStream = new MusicManagerStream();
+        managerStream.addAlbum(backInBlackTracks, "Back In Black", "1980-06-25", acdcArtists);
+        managerStream.addAlbum(newsOfTheWorld, "News Of The World", "1977-10-28", queenArtists);
+       // System.out.println(managerStream.getAlbumsByAlbumName("Back In Black"));
+        //System.out.println(managerStream.getAlbumsByTrack("Shoot To Thrill"));
+        System.out.println(managerStream.getTracksByAuthor("Freddy Mercury"));
     }
 }

@@ -1,6 +1,8 @@
-package dto;
+package firstVariant.dto;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -8,15 +10,14 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-
 public class Album {
-    private List<Artist> artist;
+    private List<Artist> artists;
     private String type;
     private String albumName;
     private String issueDate;
     private List<Track> tracks;
 
-    public String checkAlbumType() {
+    private String checkAlbumType() {
         if (tracks.size() == 1) {
             return "Single";
         } else if (tracks.size() > 1 && tracks.size() < 5) {
@@ -27,7 +28,7 @@ public class Album {
     }
 
     public Album(List<Artist> artist, String albumName, String issueDate, List<Track> tracks) {
-        this.artist = artist;
+        this.artists = artist;
         this.albumName = albumName;
         this.issueDate = issueDate;
         this.tracks = tracks;
@@ -37,7 +38,7 @@ public class Album {
     @Override
     public String toString() {
         return "ALBUM(NAME)-> " + albumName + "\n" +
-                "ARTISTS->" + artist + "]\n" +
+                "ARTISTS->" + artists + "]\n" +
                 "TYPE-> " + type + "\n" +
                 "ISSUE DATE-> " + issueDate + "\n" +
                 "TRACKS->" + tracks + "]";
